@@ -14,7 +14,7 @@ palabraOculta = '';
 
 intentos = 0;
 
-gano = true;
+gano = false;
 perdio = false;
 
   letras = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J',
@@ -23,7 +23,7 @@ perdio = false;
 
 
   constructor(){
-    this.palabraOculta = '- '.repeat(this.palabra.length);
+    this.palabraOculta = '_ '.repeat(this.palabra.length);
   }
 
   comprobar( letra: string ){
@@ -32,7 +32,7 @@ perdio = false;
     
     const palabraOcultaArr = this.palabraOculta.split(' ');
 
-    for (let i = 0; i < this.palabraOculta.length; i++) {
+    for (let i = 0; i < this.palabra.length; i ++) {
       
       if (this.palabra[i] === letra){
 
@@ -42,7 +42,6 @@ perdio = false;
     }
 
     this.palabraOculta = palabraOcultaArr.join(' ');
-
     this.verificaGane();
   }
 
@@ -66,11 +65,11 @@ perdio = false;
 
   existeLetra(letra: string){
 
-    if(this.palabra.indexOf(letra) >=0 ){
+    if(this.palabra.indexOf(letra) >= 0 ){
      // console.log('Letra existe '+ letra);
     }else{
       //console.log('Letra no existe '+ letra);
-      this.intentos++;
+      this.intentos ++;
     }
 
   }
